@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HttpAdapter
 {
-    interface IHandlerResponse
+    interface IHttpResponse
     {
         string Status { get; set; }
         string Content { get; set; } //TODO...define a list
