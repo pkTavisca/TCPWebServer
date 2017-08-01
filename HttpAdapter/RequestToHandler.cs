@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace HttpAdapter
 {
-    interface IRequest
+    class RequestToHandler : IRequest
     {
-        string Request { get; set; }
+        public string Request { get; set; }
     }
 }

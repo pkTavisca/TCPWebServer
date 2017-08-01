@@ -7,14 +7,19 @@ using System.Threading.Tasks;
 
 namespace HttpAdapter
 {
-    public class Worker:IWorker
+    public class Worker : IWorker
     {
-        public void Start(Socket connection)
+        public void Start(TcpClient client)
         {
-            byte[] b= new byte[100];
-            connection.Receive(b);
-            HttpParserAdapter parser = new HttpParserAdapter();
-            parser.UrlParser(b);
+           
+            byte[] b = new byte[100];
+            var stream = client.GetStream();
+            stream.Read(b, 0, b.Length);
+            RequestToAdapter urlParseRequest = new RequestToAdapter();
+            IRequest requestHandler = new RequestToHandler();
+            requestHandler.Request = urlParseRequest.HttpAdapterParseRequest(b);
+            IHandler handler=HandlerFactory.ProvideHandler(requestHandler);
+            IHttpResponse response=handler.ProcessRequest(requestHandler);
         }
     }
 }

@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace HttpAdapter
 {
-    class HttpParserAdapter
+    public class HttpParserAdapter
     {
-        public void UrlParser(byte[] urlData)
+        public static string UrlParser(byte[] urlData)
         {
             string path = String.Empty;
-            
+            //parse into path
+            return path;
         }
     }
 }

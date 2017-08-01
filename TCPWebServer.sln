@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listener", "Listener\Listen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpAdapter", "HttpAdapter\HttpAdapter.csproj", "{1B98325F-00DC-4EC1-A6A4-592F58F88E7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpAdapterTest", "HttpAdapterTest\HttpAdapterTest.csproj", "{679CE54F-AD34-401B-9EFC-6AFE610F0A1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1B98325F-00DC-4EC1-A6A4-592F58F88E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B98325F-00DC-4EC1-A6A4-592F58F88E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B98325F-00DC-4EC1-A6A4-592F58F88E7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{679CE54F-AD34-401B-9EFC-6AFE610F0A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{679CE54F-AD34-401B-9EFC-6AFE610F0A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{679CE54F-AD34-401B-9EFC-6AFE610F0A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{679CE54F-AD34-401B-9EFC-6AFE610F0A1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

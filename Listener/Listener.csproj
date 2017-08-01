@@ -40,11 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionQueue.cs" />
     <Compile Include="Dispatcher.cs" />
     <Compile Include="Listener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SocketQueue.cs" />
-    <Compile Include="StreamEventArgs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HttpAdapter\HttpAdapter.csproj">
+      <Project>{1b98325f-00dc-4ec1-a6a4-592f58f88e7e}</Project>
+      <Name>HttpAdapter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
