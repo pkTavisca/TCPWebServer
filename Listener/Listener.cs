@@ -9,13 +9,23 @@ namespace Listener
     {
         TcpListener listener;
 
-        Queue<Socket> ClientRequestQueue;
+        Queue<TcpClient> ClientRequestQueue;
 
-        public Listener(Queue<Socket> ClientRequestQueue)
+        public Listener(Queue<TcpClient> ClientRequestQueue)
         {
             this.ClientRequestQueue = ClientRequestQueue;
             IPAddress myIp = GetOwnIPAddress();
             listener = new TcpListener(myIp, 80);
+        }
+
+        public void Start()
+        {
+            listener.Start();
+            while (true)
+            {
+                TcpClient client = listener.AcceptTcpClient();
+                ClientRequestQueue.Enqueue(client);
+            }
         }
 
         public static IPAddress GetOwnIPAddress()

@@ -9,10 +9,11 @@ namespace HttpAdapter
 {
     public class Worker : IWorker
     {
-        public void Start(Socket connection)
+        public void Start(TcpClient client)
         {
             byte[] b = new byte[100];
-            connection.Receive(b);
+            var stream = client.GetStream();
+            stream.Read(b, 0, b.Length);
             Console.WriteLine(b.ToString());
         }
     }

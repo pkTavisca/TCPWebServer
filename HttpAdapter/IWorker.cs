@@ -9,6 +9,6 @@ namespace HttpAdapter
 {
     public interface IWorker
     {
-        void Start(Socket connection);
+        void Start(TcpClient client);
     }
 }

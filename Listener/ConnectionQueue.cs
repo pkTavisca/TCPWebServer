@@ -7,11 +7,11 @@ namespace Listener
 {
     public class ConnectionQueue
     {
-        public Queue<Socket> ClientRequestQueue { get; set; }
+        public Queue<TcpClient> ClientRequestQueue { get; set; }
 
         public ConnectionQueue()
         {
-            ClientRequestQueue = new Queue<Socket>();
+            ClientRequestQueue = new Queue<TcpClient>();
         }
     }
 }

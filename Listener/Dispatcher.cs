@@ -9,9 +9,9 @@ namespace Listener
 {
     public class Dispatcher
     {
-        private Queue<Socket> _socketQueue;
+        private Queue<TcpClient> _socketQueue;
 
-        public Dispatcher(Queue<Socket> socketQueue)
+        public Dispatcher(Queue<TcpClient> socketQueue)
         {
             _socketQueue = socketQueue;
         }
@@ -25,11 +25,11 @@ namespace Listener
                     Task.Delay(100);
                     continue;
                 }
-                Socket connection = _socketQueue.Dequeue();
+                TcpClient client = _socketQueue.Dequeue();
                 Task.Run(() =>
                 {
                     IWorker worker = new Worker();
-                    worker.Start(connection);
+                    worker.Start(client);
                 });
             }
         }
