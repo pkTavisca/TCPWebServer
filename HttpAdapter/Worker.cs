@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace HttpAdapter
 {
-    public class Worker:IWorker
+    public class Worker : IWorker
     {
         public void Start(Socket connection)
         {
-            byte[] b= new byte[100];
+            byte[] b = new byte[100];
             connection.Receive(b);
             Console.WriteLine(b.ToString());
         }

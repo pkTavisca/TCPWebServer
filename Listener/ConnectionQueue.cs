@@ -5,8 +5,13 @@ using System.Text;
 
 namespace Listener
 {
-    public class SocketQueue
+    public class ConnectionQueue
     {
         public Queue<Socket> ClientRequestQueue { get; set; }
+
+        public ConnectionQueue()
+        {
+            ClientRequestQueue = new Queue<Socket>();
+        }
     }
 }

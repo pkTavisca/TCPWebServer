@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HttpAdapter
 {
-    interface IWorker
+    public interface IWorker
     {
         void Start(Socket connection);
     }

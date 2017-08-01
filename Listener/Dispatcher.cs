@@ -2,32 +2,35 @@
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
+using HttpAdapter;
 
 namespace Listener
 {
-    class Dispatcher
+    public class Dispatcher
     {
-        public event EventHandler<StreamEventArgs> ClientRequestHandlers;
+        private Queue<Socket> _socketQueue;
 
-        Queue<Socket> ClientRequestQueue;
-
-        public Dispatcher(Queue<Socket> ClientRequestQueue)
+        public Dispatcher(Queue<Socket> socketQueue)
         {
-            this.ClientRequestQueue = ClientRequestQueue;
+            _socketQueue = socketQueue;
         }
 
         public void Start()
         {
             while (true)
             {
-                if (ClientRequestQueue.Count == 0)
+                if (_socketQueue.Count == 0)
                 {
+                    Task.Delay(100);
                     continue;
                 }
-                byte[] stream = new byte[2048];
-                ClientRequestQueue.Dequeue().Receive(stream);
-                StreamEventArgs eventArgs = new StreamEventArgs(stream);
-                ClientRequestHandlers(this, eventArgs);
+                Socket connection = _socketQueue.Dequeue();
+                Task.Run(() =>
+                {
+                    IWorker worker = new Worker();
+                    worker.Start(connection);
+                });
             }
         }
     }
