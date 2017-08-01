@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace HttpAdapter
 {
-    interface IRequest
+    class HttpParserAdapter
     {
-        string Request { get; }
+        public void UrlParser(byte[] urlData)
+        {
+            string path = String.Empty;
+            
+        }
     }
 }

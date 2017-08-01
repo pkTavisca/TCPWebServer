@@ -13,7 +13,8 @@ namespace HttpAdapter
         {
             byte[] b= new byte[100];
             connection.Receive(b);
-            Console.WriteLine(b.ToString());
+            HttpParserAdapter parser = new HttpParserAdapter();
+            parser.UrlParser(b);
         }
     }
 }
